@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LANZ MARKET | Aplikasi Premium</title>
+  <meta name="description" content="LANZ MARKET adalah tempat terpercaya untuk membeli aplikasi premium murah seperti Netflix, Spotify, Canva, dan lainnya. Order mudah & aman via WhatsApp.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Poppins', sans-serif; line-height: 1.6; background: #111; color: #fff; overflow-x: hidden;}
+    header {
+      position: relative;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+    header h1 {font-size: 2.5rem; margin-bottom: 1rem; color: #00f2fe;}
+    header p {font-size: 1.1rem; max-width: 600px; margin: auto; color: #ccc;}
+    .btn {display: inline-block; margin-top: 1.5rem; padding: 0.8rem 1.5rem; background: #00f2fe; color: #000; border-radius: 2rem; text-decoration: none; transition: background 0.3s;}
+    .btn:hover {background: #4facfe;}
+
+    .section {padding: 3rem 2rem; text-align: center;}
+    .section h2 {margin-bottom: 2rem; color: #00f2fe;}
+    .cards {display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 1000px; margin: auto;}
+    .card {
+      background: #1f1f1f;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s forwards;
+    }
+    .card:nth-child(even) {animation-delay: 0.2s;}
+    .card:nth-child(odd) {animation-delay: 0.4s;}
+    .card:hover {transform: translateY(-5px) scale(1.02); box-shadow: 0 6px 25px rgba(0,0,0,0.3);}
+    .card h3 {margin-bottom: 1rem; font-size: 1.4rem; color: #fff;}
+    .card p {font-size: 1rem; color: #aaa;}
+    .card a {text-decoration: none; color: #00f2fe; display: block; margin-top: 1rem;}
+
+    footer {text-align: center; padding: 2rem; font-size: 0.9rem; background: #1a1a1a; color: #666;}
+
+    .testimonial-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .testimonial-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLeft 20s linear infinite;
+  }
+
+  .testimonial-card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 1rem;
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Responsive tweak */
+  @media (max-width: 600px) {
+    .testimonial-card {
+      width: 250px;
+    }
+  }
+    .rain {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .drop {
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      animation: rain 1s linear infinite;
+    }
+    @keyframes rain {
+      0% {
+        transform: translateY(-100px) translateX(0);
+      }
+      100% {
+        transform: translateY(600px) translateX(-50px);
+      }
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="rain" id="rain"></div>
+    <h1>LANZ MARKET</h1>
+    <p>Jual Berbagai Aplikasi Premium Termurah & Terpercaya. Tersedia layanan Netflix, YouTube Premium, Canva Pro, Spotify, dan lainnya. Cek stok & order langsung!</p>
+    <a class="btn" href="https://wa.me/6285894493680" target="_blank">Order Sekarang via WhatsApp</a>
+  </header>
+
+  <section class="section">
+    <h2>DAFTAR LIST</h2>
+    <div class="cards" id="app-list"></div>
+  </section>
+  <section class="section">
+    <h2>Promo Diamond ML</h2>
+    <div class="cards" id="ml-diamond-list"></div>
+  </section>
+  <section class="section">
+    <h2>Testimoni Pembeli</h2>
+    <div class="testimonial-wrapper">
+      <div class="testimonial-track">
+        <!-- Testimoni diulang dua kali biar efek scroll nggak kosong -->
+        <div class="testimonial-card">
+          <p>"Pelayanan cepat, harga murah! Langganan terus di sini."</p>
+          <h3>- Rani</h3>
+        </div>
+        <div class="testimonial-card">
+          <p>"Order Netflix cuma beberapa menit langsung aktif. Recommended!"</p>
+          <h3>- Bagas</h3>
+        </div>
+        <div class="testimonial-card">
+          <p>"Beli di sini aman, murah, dan cepet banget. Terbaik pokoknya!"</p>
+          <h3>- Dinda</h3>
+        </div>
+        <!-- Ulangi biar infinite -->
+        <div class="testimonial-card">
+          <p>"Pelayanan cepat, harga murah! Langganan terus di sini."</p>
+          <h3>- Rani</h3>
+        </div>
+        <div class="testimonial-card">
+          <p>"Order Netflix cuma beberapa menit langsung aktif. Recommended!"</p>
+          <h3>- Bagas</h3>
+        </div>
+        <div class="testimonial-card">
+          <p>"Order Am di sini aman, terpercaya, dan yang pastinya murah. Terbaik pokoknya!"</p>
+          <h3>- Dinda</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Cara Order</h2>
+    <p>Chat langsung via WhatsApp, pilih aplikasi, transfer, lalu langsung aktif. Proses cepat & aman!</p>
+    <a class="btn" href="https://wa.me/6285894493680" target="_blank">Order Sekarang</a>
+  </section>
+
+  <section class="section">
+    <h2>Join Grup Diskusi</h2>
+    <p>Gabung ke grup untuk info promo, stok terbaru, dan tanya jawab seputar aplikasi premium.</p>
+    <a class="btn" href="" target="_blank">Join Grup LANZ MARKET</a>
+  </section>
+
+  <footer>
+    &copy; 2025 LANZ MARKET — Jual Aplikasi Premium Murah & Terpercaya
+    <div style="margin-top: 1rem;">
+      <a href="https://wa.me/6285894493680" target="_blank" style="margin: 0 0.5rem;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" width="24" height="24" style="filter: invert(1);">
+      </a>
+      <a href="https://instagram.com/lanzzz.20" target="_blank" style="margin: 0 0.5rem;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(1);">
+      </a>
+      <a href="https://tiktok.com/@lanzstore20" target="_blank" style="margin: 0 0.5rem;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" width="24" height="24" style="filter: invert(1);">
+      </a>
+    </div>
+  </footer>
+  
+  <script>
+  const diamonds = [
+    { jumlah: '86 Diamond', harga: 00000 },
+    { jumlah: '172 Diamond', harga: 00000 },
+    { jumlah: '257 Diamond', harga: 00000 },
+    { jumlah: '344 Diamond', harga: 00000 },
+    { jumlah: '429 Diamond', harga: 00000 },
+    { jumlah: '514 Diamond', harga: 00000 },
+    { jumlah: '706 Diamond', harga: 00000 },
+    { jumlah: '878 Diamond', harga: 00000 },
+    { jumlah: '963 Diamond', harga: 00000 },
+    { jumlah: '1412 Diamond', harga: 00000 },
+    { jumlah: '2195 Diamond', harga: 00000 }
+  ];
+
+  const mlContainer = document.getElementById('ml-diamond-list');
+
+  diamonds.forEach(({ jumlah, harga }, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = (index * 0.1) + 's';
+    const pesan = `Halo, saya ingin order ${jumlah} Mobile Legends - harga Rp${harga.toLocaleString('id-ID')}`;
+    const waLink = `https://wa.me/6285894493680?text=${encodeURIComponent(pesan)}`;
+    card.innerHTML = `<h3>${jumlah}</h3><p>Harga: Rp${harga.toLocaleString('id-ID')}</p><a href="${waLink}" target="_blank">Order ${jumlah}</a>`;
+    mlContainer.appendChild(card);
+  });
+
+    const apps = [
+      
+      { name: 'Am', price: 3000, durasi: '1 Tahun' },
+      { name: 'Bstation', price: 7000, durasi: '1 Bulan' },
+      { name: 'Canva', price: 3000, durasi: '1 Bulan' },
+      { name: 'Capcut', price: 10000, durasi: '1 Bulan' },
+      { name: 'Disney', price: 15000, durasi: '1 Bulan' },
+      { name: 'Dramabox', price: 5000, durasi: '1 Bulan' },
+      { name: 'Iqiyi ', price: 8500, durasi: '1 Bulan' },
+      { name: 'Moviebox', price: 6700, durasi: '1 Bulan' },
+      { name: 'Netflix', price: 15000, durasi: '1 Bulan' },
+      { name: 'Nokos', price: 9000, durasi: 'ga ada' },
+      { name: 'Picsart', price: 5000, durasi: '1 Bulan' },
+      { name: 'Prime Video', price: 16000, durasi: '1 Bulan' },
+      { name: 'Remini', price: 11000, durasi: '1 Tahun' },
+      { name: 'Shortmax', price: 13000, durasi: '1 Bulan' },
+      { name: 'Spotify', price: 12000, durasi: '1 Bulan' },
+      { name: 'Timnas Stream', price: 15000, durasi: '1 Bulan' },
+      { name: 'Vidio', price: 12000, durasi: '1 Bulan' },
+      { name: 'Viu', price: 5000, durasi: '1 Tahun' },
+      { name: 'Wetv', price: 8000, durasi: '1 Bulan' },
+      { name: 'Wibuku', price: 6700, durasi: '1 Bulan' },
+      { name: 'Youku', price: 8000, durasi: '1 Bulan' },
+      { name: 'Youtube', price: 4000, durasi: '1 Bulan' }
+    ];
+
+    const container = document.getElementById('app-list');
+
+    apps.forEach(({ name, price, durasi }, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.animationDelay = (index * 0.1) + 's';
+      const pesan = `Halo, saya ingin order ${name} - harga Rp${price.toLocaleString('id-ID')} - durasi ${durasi}`;
+      const waLink = `https://wa.me/6285894493680?text=${encodeURIComponent(pesan)}`;
+      card.innerHTML = `<h3>${name}</h3><p>Harga: Rp${price.toLocaleString('id-ID')}</p><p>Durasi: ${durasi}</p><a href="${waLink}" target="_blank">Order ${name}</a>`;
+      container.appendChild(card);
+    });
+
+    const rainContainer = document.getElementById('rain');
+    for (let i = 0; i < 50; i++) {
+      const drop = document.createElement('div');
+      drop.className = 'drop';
+      drop.style.left = Math.random() * 100 + '%';
+      drop.style.animationDelay = Math.random() * 2 + 's';
+      drop.style.animationDuration = 0.5 + Math.random() * 1.5 + 's';
+      rainContainer.appendChild(drop);
+    }
+  </script>
+</body>
+</html>
